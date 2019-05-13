@@ -1,0 +1,168 @@
+##########################################################################
+#
+##########################################################################
+
+heat_template_version: newton
+
+description: Customized Heat template that deploys the Cloudify Community version
+
+##############
+#            #
+# PARAMETERS #
+#            #
+##############
+
+parameters:
+  image_name:
+    type: string
+    label: Image name or ID
+    description: Image to be used for compute instance
+  flavor_name:
+    type: string
+    label: Flavor
+    description: Type of instance (flavor) to be used
+  external_net_id:
+    type: string
+    label: External network name or ID
+    description: External network that enables remote connection to VNF
+  pub_key:
+    type: string
+    label: Public key
+    description: Public key to be installed on the compute instance
+
+#############
+#           #
+# RESOURCES #
+#           #
+#############
+
+resources:
+  random-str:
+    type: OS::Heat::RandomString
+    properties:
+      length: 4
+
+  cloudify_keypair:
+    type: OS::Nova::KeyPair
+    properties:
+      name:
+        str_replace:
+          template: base_rand
+          params:
+            base: cloudify
+            rand: { get_resource: random-str }
+      public_key: { get_param: pub_key }
+      save_private_key: false
+
+  cloudify_security_group:
+    type: OS::Neutron::SecurityGroup
+    properties:
+      name: 
+        str_replace:
+          template: base_rand
+          params:
+            base: cloudify_security_group
+            rand: { get_resource: random-str }
+      rules:
+         #1 ingress: ICMP/RemoteIP
+         - { remote_ip_prefix: 0.0.0.0/0, direction: ingress, protocol: icmp }
+         #2 ingress: TCP/SSH/22/RemoteIP
+         - { remote_ip_prefix: 0.0.0.0/0, direction: ingress, protocol: tcp, port_range_min: 22, port_range_max: 22}
+         #3 ingress: TCP/HTTP/80/RemoteIP
+         - { remote_ip_prefix: 0.0.0.0/0, direction: ingress, protocol: tcp, port_range_min: 80, port_range_max: 80}
+         #4 ingress: TCP/HTTPS/443/RemoteIP
+         - { remote_ip_prefix: 0.0.0.0/0, direction: ingress, protocol: tcp, port_range_min: 443, port_range_max: 443}
+         #5 ingress: TCP/5671/RemoteIP
+         - { remote_ip_prefix: 0.0.0.0/0, direction: ingress, protocol: tcp, port_range_min: 5671, port_range_max: 5671}
+         #6 ingress: TCP/53229/RemoteIP
+         - { remote_ip_prefix: 0.0.0.0/0, direction: ingress, protocol: tcp, port_range_min: 53229, port_range_max: 53229}
+         #7 ingress: TCP/53333/RemoteIP
+         - { remote_ip_prefix: 0.0.0.0/0, direction: ingress, protocol: tcp, port_range_min: 53333, port_range_max: 53333}
+         
+  cloudify_internal_network:
+    type: OS::Neutron::Net
+    properties:
+      name: internal-net
+
+  cloudify_internal_subnet:
+    type: OS::Neutron::Subnet
+    properties:
+      name: internal-subnet
+      network_id: { get_resource: cloudify_internal_network }
+      cidr: "10.0.0.0/16"
+      enable_dhcp: true
+      gateway_ip: "10.0.0.1"
+      dns_nameservers: ["8.8.8.8"]
+      allocation_pools: [{"start": "10.0.0.10", "end": "10.0.0.240" }]
+
+  external-router:
+    type: OS::Neutron::Router
+    properties:
+      name: external-router
+      external_gateway_info: { network: { get_param: external_net_id } }
+
+  external-router-patch:
+    type: OS::Neutron::RouterInterface
+    depends_on: [  external-router, cloudify_internal_subnet ]
+    properties:
+      router: { get_resource: external-router } 
+      subnet: { get_resource: cloudify_internal_subnet }
+
+  # Cloudify Manager
+  cloudify_private_port:
+    type: OS::Neutron::Port
+    depends_on: [  cloudify_security_group ]
+    properties:
+      network: { get_resource: cloudify_internal_network }
+      fixed_ips: [{"subnet": { get_resource: cloudify_internal_subnet }, "ip_address": "10.0.0.5"}]
+      security_groups:
+      - { get_resource: cloudify_security_group }
+
+  cloudify_ext_floatingip:
+    type: OS::Neutron::FloatingIP
+    properties:
+      floating_network: { get_param: external_net_id }
+      port_id: { get_resource: cloudify_private_port }
+
+  cloudify:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: image_name }
+      flavor: { get_param: flavor_name }
+      name: cloudify-manager
+      key_name: { get_resource: cloudify_keypair }
+      networks:
+        - port: { get_resource: cloudify_private_port }
+      user_data_format: RAW
+      user_data:
+        str_replace:
+          params:
+            __cloudify_manager_private_ip__: { get_attr: [cloudify_private_port, fixed_ips, 0, ip_address] }
+            __cloudify_manager_external_ip__: { get_attr: [cloudify_ext_floatingip, floating_ip_address] }
+          template: |
+            #!/bin/bash
+
+            sudo yum -y -q install epel-release
+            sudo yum makecache
+            sudo yum -y -q install nano
+            sudo yum -y -q install wget
+            sudo yum -y -q install curl
+            sudo yum -y -q install htop            
+            wget -nv $(curl -s https://raw.githubusercontent.com/cloudify-cosmo/cloudify-versions/master/packages-urls/manager-install-rpm.yaml)
+            sudo yum install -y -q $(ls)
+            runuser -l centos -c 'cfy_manager install --private-ip __cloudify_manager_private_ip__ --public-ip __cloudify_manager_external_ip__'
+            echo "cfy_manager install --private-ip __cloudify_manager_private_ip__ --public-ip __cloudify_manager_external_ip__" 
+            rm *.rpm
+            sudo yum -y -q install jq
+            wget -nv -O yq https://github.com/mikefarah/yq/releases/download/2.3.0/yq_linux_amd64
+            chmod 775 yq
+            mkdir -p /home/centos/.local/bin
+            mv yq /home/centos/.local/bin/
+            sudo chown -R centos:centos /home/centos/.local
+            runuser -l centos -c 'cfy plugins bundle-upload'
+            runuser -l centos -c 'cfy plugins upload -y openstack/plugin.yaml openstack/cloudify_openstack_plugin-2.14.7-py27-none-linux_x86_64-centos-Core.wgn'
+            sudo yum -y -q install git
+            sudo yum -y -q install python-devel python-pip
+            runuser -l centos -c 'pip -q install python-openstackclient --user'
+            runuser -l centos -c 'pip -q install --upgrade decorator --user'
+            sudo /home/centos/.local/bin/yq r /etc/cloudify/config.yaml manager.security.admin_password >  /home/centos/cfy-password            
