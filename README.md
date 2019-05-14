@@ -1,6 +1,6 @@
 # Przygotowanie środowiska Cloudify
 
-Celem tego ćwiczenia jest przygotowanie środowiska Cloudify do wykonywania dalszych ćwiczeń
+Celem tego ćwiczenia jest przygotowanie środowiska Cloudify do wykonywania dalszych ćwiczeń.
 
 ### Instalacja Cloudify z użyciem OpenStack Heat
 - Z użyciem puttygen.exe wygeneruj klucz publiczny i prywatny RSA dla połączeń SSH z Cloudify Managerem
@@ -20,22 +20,22 @@ Celem tego ćwiczenia jest przygotowanie środowiska Cloudify do wykonywania dal
 - Postep wykonania stosu sprawdż [Projekt->Orkiestracja->Stosy->[nazwa_stosu]->Zdarzenia
 - Poczekaj na Utworzenie maszyny, operacja może potrwać 10 minut
 
-### Wryfikacja dostepu do DashBoard Cloudify
+### Weryfikacja dostępu do DashBoard Cloudify
 - W Dasboard OpenStack przejdź do zakładki [Projekt->Obliczenia->Instancje] i odczytaj adres zewnętrzny maszyny "cloudify-manager"
 - Z użyciem putty.exe oraz wygenerowanego wczęśniej klucza prywatnego zaloguj się do maszyny "cloudify-manager" dla uzytkownika "centos"
 - wykonaj polecenie 'ls'
-- Jeżeli nie pojawi się plik "cfy-password" poczekaj na jego wygenerowanie się (oznacza to, że konfiguracja Cloudify jeszcze się nie skończyła)
+- Jeżeli nie pojawi się plik "cfy-password", poczekaj na jego wygenerowanie (brak tego opliku oznacza, że proces konfigurowania Cloudify jeszcze trwa)
 - Odczytaj hasło do Dashboardu Cloudify
 ```
 cat cfy-password
 ```
-- Przejdź do przegladarki i w adresie url wpisz adres użyty wczęsniej do połączenia ssh do maszyny "cloudify-manager"
-- Podaj login "admin" oraz odczytane wczęśniej hasło 
+- Przejdź do przeglądarki i w adresie url wpisz adres użyty wcześniej do połączenia ssh do maszyny "cloudify-manager"
+- Podaj login "admin" oraz odczytane wcześniej hasło 
 - Zapoznaj się z interfejsem użytkownka Cloudify
 
 ### Konfiguracja klienta Openstack
 - Utwórz plik "openrc.sh" na podstawie przykładowego pliku "openrc-example.sh". Zawiera on zmienne śrlodowiskowe używane przez CLI OpenStack
-- Przekaż dane włąściwe dla Twojego projektu openstack (nazwa projektu, użytkownik i hasło do OpenStack), adres serwisu autentykacji odczytaj z dashboard OpenStack [Projekt->Obliczenia->Dostęp do API->Identity]
+- Przekaż dane właściwe dla Twojego projektu openstack (nazwa projektu, użytkownik i hasło do OpenStack), adres serwisu autentykacji odczytaj z dashboard OpenStack [Projekt->Obliczenia->Dostęp do API->Identity]
 - Zweryfikuj dostęp do API OpenStack wykonując następujące polecenia w maszynie "cloudify-manager"
 
 ```
