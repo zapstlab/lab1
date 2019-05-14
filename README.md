@@ -1,4 +1,4 @@
-# Przygotowanie środowiska Cloudify
+# ĆWICZENIE: Przygotowanie środowiska Cloudify
 
 Celem tego ćwiczenia jest przygotowanie środowiska Cloudify do wykonywania dalszych ćwiczeń.
 
