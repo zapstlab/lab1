@@ -44,3 +44,7 @@ openstack
 project list
 quit
 ```
+
+# Sprawozdanie z ćwiczenia
+
+Udokumentuj poszczególne kroki ćwiczenia (1-4) zachowując odpowiednią numeracje rozdziałów. W odrębnym punkcie podsumuj ćwiczenie.
