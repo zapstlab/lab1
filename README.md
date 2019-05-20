@@ -47,4 +47,4 @@ quit
 
 # Sprawozdanie z ćwiczenia
 
-Udokumentuj poszczególne kroki ćwiczenia (1-4) zachowując odpowiednią numeracje rozdziałów. W odrębnym punkcie podsumuj ćwiczenie.
+Udokumentuj poszczególne kroki ćwiczenia zachowując odpowiednią numerację rozdziałów. W odrębnym punkcie podsumuj całe ćwiczenie.
