@@ -15,7 +15,7 @@ Celem tego ćwiczenia jest przygotowanie środowiska Cloudify do wykonywania dal
 	- Nazwa sieci zewnętrznej [Projekt->Sieć->Sieci] (nazwa sieci zewnętrznej)
 	- Nazwa odmiany maszyny np. "m1.medium"
 	- Nazwa obrazu Centos7 [Projekt->Obliczenia->Obrazy]
-	- Zawartość wygenerowanego wcześniej klucza publicznego w formacie zaczynającym się sekwencją "ssh-rsa AAAA(...)" (w PuTTYGen można ją skopiować z górnego okienka z nagłówkiem "Public key for pasting into OpenSSH authorized_keys file")
+	- Zawartość wygenerowanego wcześniej klucza publicznego w formacie zaczynającym się sekwencją "ssh-rsa AAAA" (w PuTTYGen można ją skopiować z górnego okienka z nagłówkiem "Public key for pasting into OpenSSH authorized_keys file")
 - Naciśniej przycisk "Uruchom"
 - Postep wykonania stosu sprawdż [Projekt->Orkiestracja->Stosy->[nazwa_stosu]->Zdarzenia
 - Poczekaj na Utworzenie maszyny, operacja może potrwać 10 minut
