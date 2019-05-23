@@ -4,7 +4,7 @@ Celem tego ćwiczenia jest przygotowanie środowiska Cloudify do wykonywania dal
 
 ### Instalacja Cloudify z użyciem OpenStack Heat
 
-Przejrzyj template HOT służący do utworzenia "stack'u" dla Cloudify. Zwróć uwagę na sposób osadzenia właściwej instalacji Cloudify na maszynie z użyciem skryptu powłoki Linuxa. W celu zapoznania się z ważniejszymi konstrukcjami szablonu, w tym tzw. funkcjami wewnętrznymi (ang. intrinsic functions), można posłużyć się np. tym źródłem: https://developer.rackspace.com/docs/cloud-orchestration/v1/resources-reference/functions/. W kolejnych ćwiczeniach zobaczymy, że szablony HOT i blueprinty TOSCA mają wiele podobieństw.
+Przejrzyj template HOT służący do utworzenia "stack'u" dla Cloudify. Zwróć uwagę na sposób osadzenia właściwej instalacji Cloudify na maszynie z użyciem skryptu powłoki Linuxa. W celu zapoznania się z ważniejszymi konstrukcjami szablonu, w tym tzw. funkcjami wewnętrznymi (ang. intrinsic functions), można posłużyć się np. tym źródłem: https://developer.rackspace.com/docs/cloud-orchestration/v1/resources-reference/functions/. W kolejnych ćwiczeniach zobaczymy, że szablony HOT i blueprinty TOSCA mają wiele podobieństw. UWAGA: zależnie od indywidualnych preferencji, powyższą analizę można przeprowadzić również po zainstalowaniu Cloudify.
 
 Następnie:
 
@@ -27,7 +27,7 @@ Następnie:
 
 ### Weryfikacja dostępu do DashBoard Cloudify
 - W Dasboard OpenStack przejdź do zakładki [Projekt->Obliczenia->Instancje] i odczytaj adres zewnętrzny maszyny "cloudify-manager"
-- Z użyciem putty.exe oraz wygenerowanego wczęśniej klucza prywatnego zaloguj się do maszyny "cloudify-manager" dla uzytkownika "centos"
+- Z użyciem putty.exe oraz wygenerowanego wcześniej klucza prywatnego zaloguj się do maszyny "cloudify-manager" dla uzytkownika "centos"
 - wykonaj polecenie 'ls'
 - Jeżeli nie pojawi się plik "cfy-password", poczekaj na jego wygenerowanie (brak tego opliku oznacza, że proces konfigurowania Cloudify jeszcze trwa)
 - Odczytaj hasło do Dashboardu Cloudify
