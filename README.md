@@ -4,7 +4,7 @@ Celem tego ćwiczenia jest przygotowanie środowiska Cloudify do wykonywania dal
 
 ### Instalacja Cloudify z użyciem OpenStack Heat
 
-Przejrzyj template HOT służący do utworzenia "stack'u" dla Cloudify. Zwróć uwagę na sposób osadzenia właściwej instalacji Cloudify na maszynie z użyciem skryptu powłoki Linuxa. W celu zapoznania się z ważniejszymi konstrukcjami szablonu, w tym tzw. funkcjami wewnętrznymi (ang. intrinsic functions), można posłużyć się np. tym źródłem: https://developer.rackspace.com/docs/cloud-orchestration/v1/resources-reference/functions/. W kolejnych ćwiczeniach zobaczymy, że szablony HOT i blueprinty TOSCA mają wiele podobieństw. UWAGA: zależnie od indywidualnych preferencji, powyższą analizę można przeprowadzić również po zainstalowaniu Cloudify.
+Przejrzyj template HOT w pliku cloudify.yaml służący silnikowi OpenStack/Heat do utworzenia "stack'u" dla Cloudify. Zwróć uwagę na sposób osadzenia w szablonie skryptu powłoki Linuxa odpowiedzialnego za właściwą instalację Cloudify na maszynie wirtualnej. W celu zapoznania się z ważniejszymi konstrukcjami szablonu, w tym tzw. funkcjami wewnętrznymi (ang. intrinsic functions), można posłużyć się np. tym źródłem: https://developer.rackspace.com/docs/cloud-orchestration/v1/resources-reference/functions/. W kolejnych ćwiczeniach zobaczymy, że szablony HOT i blueprinty TOSCA mają wiele podobieństw. UWAGA: zależnie od indywidualnych preferencji, powyższą analizę można przeprowadzić również po zainstalowaniu Cloudify.
 
 Następnie:
 
