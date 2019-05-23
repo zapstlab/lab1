@@ -3,6 +3,11 @@
 Celem tego ćwiczenia jest przygotowanie środowiska Cloudify do wykonywania dalszych ćwiczeń.
 
 ### Instalacja Cloudify z użyciem OpenStack Heat
+
+Przejrzyj template HOT sucy do utworzenia "stack'u" dla Cloudify. W celu zrozumienia wazniejszych konstrukcji szablonu, w tym tzw. funkcji wewnetrznych (ang. intrinsic functions), mozna posluyc sie np. tym zrodlem: https://developer.rackspace.com/docs/cloud-orchestration/v1/resources-reference/functions/. W kolejnych cwiczeniach zobaczysz, ze szablony HOT i blueprinty TOSCA maja wiele cech wspolnych.
+
+Nastepnie:
+
 - Z użyciem puttygen.exe wygeneruj klucz publiczny i prywatny RSA dla połączeń SSH z Cloudify Managerem
 - Zaloguj się do OpenStack z użyciem przekazanego loginu i hasła
 - Przejdź do zakładki [Projekt->Orkiestracja->Stosy]
