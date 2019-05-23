@@ -13,7 +13,7 @@ Celem tego ćwiczenia jest przygotowanie środowiska Cloudify do wykonywania dal
 	- Zaznacz opcję Wycofania po wystapieniu błędu
 	- Hasło dla używanego projektu openstack
 	- Nazwa sieci zewnętrznej [Projekt->Sieć->Sieci] (nazwa sieci zewnętrznej)
-	- Nazwa odmiany maszyny np. "m1.medium" (zalecane: 2 x core, 4GB RAM, 30GB dysk)
+	- Nazwa odmiany maszyny np. "m1.medium" (zalecane: 2 x core, 4GB RAM, dysk >= 20GB)
 	- Nazwa obrazu Centos7 [Projekt->Obliczenia->Obrazy]
 	- Zawartość wygenerowanego wcześniej klucza publicznego w formacie zaczynającym się sekwencją "ssh-rsa AAAA" (w PuTTYGen można ją skopiować z górnego okienka z nagłówkiem "Public key for pasting into OpenSSH authorized_keys file")
 - Naciśniej przycisk "Uruchom"
