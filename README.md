@@ -27,10 +27,10 @@ Następnie:
 
 ### Weryfikacja dostępu do DashBoard Cloudify
 - W Dasboard OpenStack przejdź do zakładki [Projekt->Obliczenia->Instancje] i odczytaj adres zewnętrzny maszyny "cloudify-manager"
-- Z użyciem putty.exe oraz wygenerowanego wcześniej klucza prywatnego zaloguj się do maszyny "cloudify-manager" dla uzytkownika "centos"
+- Z użyciem putty.exe oraz wygenerowanego wcześniej klucza prywatnego zaloguj się do maszyny "cloudify-manager" dla użytkownika "centos"
 - wykonaj polecenie 'ls'
 - Jeżeli nie pojawi się plik "cfy-password", poczekaj na jego wygenerowanie (brak tego opliku oznacza, że proces konfigurowania Cloudify jeszcze trwa)
-- Odczytaj hasło do Dashboardu Cloudify
+- Odczytaj hasło do Dashboardu Cloudify zapisane w pliku cfy-password:
 ```
 cat cfy-password
 ```
