@@ -39,8 +39,8 @@ cat cfy-password
 - Zapoznaj się z interfejsem użytkownka Cloudify
 
 ### Konfiguracja klienta Openstack
-- Utwórz plik "openrc.sh" na podstawie przykładowego pliku "openrc-example.sh". Zawiera on zmienne śrlodowiskowe używane przez CLI OpenStack
-- Przekaż dane właściwe dla Twojego projektu openstack (nazwa projektu, użytkownik i hasło do OpenStack), adres serwisu autentykacji odczytaj z dashboard OpenStack [Projekt->Obliczenia->Dostęp do API->Identity]
+- Na katalogu głównym maszyny cloudify-manager utwórz plik "openrc.sh" na podstawie przykładowego pliku "openrc-example.sh". Zawiera on zmienne środowiskowe używane przez CLI OpenStack
+- Wpisz do pliku openrc.sh dane właściwe dla Twojego projektu openstack (nazwa projektu, użytkownik i hasło do OpenStack), adres serwisu autentykacji odczytaj z dashboard OpenStack [Projekt->Obliczenia->Dostęp do API->Identity]
 - Zweryfikuj dostęp do API OpenStack wykonując następujące polecenia w maszynie "cloudify-manager"
 
 ```
