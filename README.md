@@ -36,7 +36,7 @@ cat cfy-password
 ```
 - Przejdź do przeglądarki i w adresie url wpisz adres użyty wcześniej do połączenia ssh z maszyną "cloudify-manager"
 - Podaj login "admin" oraz odczytane wcześniej hasło 
-- Zapoznaj się z interfejsem użytkownka Cloudify
+- Zapoznaj się z interfejsem użytkownka Cloudify.
 
 ### Konfiguracja klienta Openstack
 - W katalogu głównym maszyny cloudify-manager utwórz plik "openrc.sh" na podstawie przykładowego pliku "openrc-example.sh". Zawiera on zmienne środowiskowe używane przez CLI OpenStack.
