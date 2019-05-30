@@ -23,7 +23,7 @@ Następnie:
 	- Zawartość wygenerowanego wcześniej klucza publicznego w formacie dla OpenSSH - zaczynającym się sekwencją "ssh-rsa AAAA" (w PuTTYGen można ją skopiować z górnego okienka z nagłówkiem "Public key for pasting into OpenSSH authorized_keys file")
 - Naciśniej przycisk "Uruchom"
 - Postęp wykonania stosu sprawdż [Projekt->Orkiestracja->Stosy->[nazwa_stosu]->Zdarzenia
-- Poczekaj na Utworzenie maszyny, operacja może potrwać 10 minut
+- Poczekaj na Utworzenie maszyny - operacja może potrwać nawet 10 minut.
 
 ### Weryfikacja dostępu do DashBoard Cloudify
 - W Dasboard OpenStack przejdź do zakładki [Projekt->Obliczenia->Instancje] i odczytaj adres zewnętrzny maszyny "cloudify-manager"
