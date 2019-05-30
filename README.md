@@ -1,6 +1,6 @@
-# ĆWICZENIE: Przygotowanie środowiska zwirtualizowanego Cloudify
+# ĆWICZENIE: Przygotowanie zwirtualizowanego środowiska Cloudify
 
-Celem tego ćwiczenia jest przygotowanie środowiska Cloudify do wykonywania dalszych ćwiczeń.
+Celem ćwiczenia jest przygotowanie zwirtualizpowanego środowiska dla Cloudify, w którym przeprowadzimy resztę ćwiczeń. Na tym etapie zapoznamy się z konsolą zarządzania GUI OpenStack (Horizon) oraz poznamy podstawy budowy szablonów HEAT OpenStack i zasady pracy z nimi. Za przykład posłuży nam szablon instalacyjny dla managera CLoudify. W kolejnych ćwiczeniach będzie można porównać strukturę szablonów HEAT i blueprintów TOSCA zauważanjąc wiele podobieńst między nimi.
 
 ### Instalacja Cloudify z użyciem OpenStack Heat
 
