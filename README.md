@@ -49,7 +49,7 @@ openstack
 project list
 quit
 ```
-Uwaga: otwarcie konsoli OpenStack komendą "openstack" powyżej może chwilę trwać.
+Uwaga: otwarcie wiersza poleceń OpenStack komendą "openstack" jak powyżej może chwilę trwać.
 
 # Sprawozdanie z ćwiczenia
 
