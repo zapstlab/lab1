@@ -52,4 +52,4 @@ quit
 
 # Sprawozdanie z ćwiczenia
 
-Udokumentuj poszczególne kroki ćwiczenia zachowując odpowiednią numerację rozdziałów.
+Udokumentuj poszczególne kroki ćwiczenia zachowując odpowiednią numerację rozdziałów. W tym celu można wykorzystać skomentowane krótko zrzuty z ekranu. Dokumentację przygotuj i dostarcz prowadzącemu w formacie pdf.
