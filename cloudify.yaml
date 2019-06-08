@@ -1,8 +1,7 @@
-##########################################################################
-#
-##########################################################################
-
-# Quick reference of HOT specification: https://docs.openstack.org/heat/rocky/template_guide/hot_spec.html
+###########################################################################
+# Quick reference of HOT specification:                                   #
+#   https://docs.openstack.org/heat/rocky/template_guide/hot_spec.html    #
+###########################################################################
 
 heat_template_version: newton
 
