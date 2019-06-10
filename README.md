@@ -4,7 +4,9 @@ Celem ćwiczenia jest przygotowanie zwirtualizpowanego środowiska dla Cloudify,
 
 ### Instalacja Cloudify z użyciem OpenStack Heat
 
-Przejrzyj szablon HOT w pliku cloudify.yaml służący silnikowi OpenStack/Heat do utworzenia "stack'u" dla Cloudify. Zwróć uwagę na sposób osadzenia w szablonie skryptu powłoki Linuxa odpowiedzialnego za właściwą instalację Cloudify na maszynie wirtualnej. W celu zapoznania się z ważniejszymi konstrukcjami szablonu, w tym tzw. funkcjami wewnętrznymi (ang. intrinsic functions), można posłużyć się np. tym źródłem: https://developer.rackspace.com/docs/cloud-orchestration/v1/resources-reference/functions/. W kolejnych ćwiczeniach zobaczymy, że szablony HOT i blueprinty TOSCA mają wiele podobieństw. UWAGA: zależnie od indywidualnych preferencji, powyższą analizę można przeprowadzić również po zainstalowaniu Cloudify.
+Przejrzyj szablon HOT w pliku cloudify.yaml służący silnikowi OpenStack/Heat do utworzenia "stack'u" dla Cloudify. Zwróć uwagę na sposób osadzenia w szablonie skryptu powłoki Linuxa odpowiedzialnego za właściwą instalację Cloudify na maszynie wirtualnej. W celu zapoznania się z ważniejszymi konstrukcjami szablonu, w tym tzw. funkcjami wewnętrznymi (ang. intrinsic functions), można posłużyć się np. tym źródłem: https://developer.rackspace.com/docs/cloud-orchestration/v1/resources-reference/functions/. W kolejnych ćwiczeniach zobaczymy, że szablony HOT i blueprinty TOSCA mają wiele podobieństw. Podsumuj zwięźle rolę ważniejszych konstrukcji użytych w naszym szablonie.
+
+UWAGA: zależnie od indywidualnych preferencji, powyższą analizę można przeprowadzić również po zainstalowaniu Cloudify.
 
 Następnie:
 
@@ -53,4 +55,4 @@ Uwaga: otwarcie wiersza poleceń OpenStack komendą "openstack" jak powyżej mo�
 
 # Sprawozdanie z ćwiczenia
 
-Udokumentuj poszczególne kroki ćwiczenia zachowując odpowiednią numerację rozdziałów. W tym celu można wykorzystać skomentowane krótko zrzuty z ekranu. Dokumentację przygotuj i dostarcz prowadzącemu w formacie pdf.
+Udokumentuj poszczególne kroki ćwiczenia zachowując odpowiednią numerację rozdziałów. W tym celu można wykorzystać skomentowane krótko zrzuty z ekranu. Pamiętaj o podsumowaniu wazniejszych konstrukcji szablou Heat/HOT wg punktu "Instalacja Cloudify z użyciem OpenStack Heat". Dokumentację przygotuj i dostarcz prowadzącemu w formacie pdf.
